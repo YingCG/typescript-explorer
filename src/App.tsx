@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Greet } from './components/Greet';
+import PersonList from './components/PersonList';
+import { Status } from './components/Status';
+import { Heading } from './components/Heading';
+import { Button } from './components/Button';
+import { Input } from './components/Input';
+import { TodoList } from './todos/TodoList';
 
 function App() {
+  const userList = [
+    {first: 'Cookies', last: 'Monster', message: ''},
+    {first: 'Fruit', last: 'Monster'},
+    {first: 'Vege', last: 'Head'},
+
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Greet name='you' messageCount={100} isLoggedIn={false}/>
+    <PersonList names={userList} /> 
+    {/* <Status status='success'/>
+    {/* <Button handleClick={(event) => {
+      console.log('button clicked', event) 
+    }}/> */}
+    <TodoList/>
     </div>
   );
 }
